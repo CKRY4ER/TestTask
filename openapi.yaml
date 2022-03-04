@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: TestTask
+  description: 'Тестовое задание'
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: nechaev2.evgenii.43@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 0.0.1
+
+tags:
+- name: User
+  description: "Пользователь"
+- name: Task
+  description: "Задача"
+  
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        ID:
+          type: integer
+        Surname:
+          type: string
+        Name:
+          type: string
+        Create_Date:
+          description: "Дата создания пользователя"
+          type: string
+          format: date
+        Date_Redact:
+          description: "Дата последнего редактирования"
+          type: string
+          format: date
+        Status:
+          description: "Статус пользователя (Активный, Октлючен, Заблокирован)"
+          type: string
+          enum:
+           - Active
+           - Disabled
+           - Blocked
+    Task:
+      type: object
+      properties:
+        ID:
+          type: integer
+        Name:
+          type: string
+        Description:
+          type: string 
+        Create_Date:
+          description: "Дата создания задачи"
+          type: string
+          format: date
+        Date_Redact:
+          description: "Дата последнего редактирования"
+          type: string
+          format: date
+        Status:
+          description: "Статус задачи (Не начата, В процессе, Выполнен, Отменен, Отклонен)"
+          type: string
+          enum:
+           - Not started
+           - In process
+           - Completed
+           - Cancelled
+           - Rejected
+        Vendor:
+          $ref: "#/components/schemas/User" 
+        Executor:
+          $ref: "#/components/schemas/User"
+        
