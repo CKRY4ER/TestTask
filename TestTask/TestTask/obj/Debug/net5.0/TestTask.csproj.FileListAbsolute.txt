@@ -27,3 +27,7 @@ C:\Users\user\Desktop\TestTask\TestTask\TestTask\obj\Debug\net5.0\TestTask.dll
 C:\Users\user\Desktop\TestTask\TestTask\TestTask\obj\Debug\net5.0\ref\TestTask.dll
 C:\Users\user\Desktop\TestTask\TestTask\TestTask\obj\Debug\net5.0\TestTask.pdb
 C:\Users\user\Desktop\TestTask\TestTask\TestTask\obj\Debug\net5.0\TestTask.genruntimeconfig.cache
+C:\Users\user\Desktop\TestTask\TestTask\TestTask\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
