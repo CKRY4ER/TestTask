@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 0.0.1
+  version: 1.0.0
 
 tags:
 - name: User
@@ -16,13 +16,260 @@ tags:
 - name: Task
   description: "Задача"
   
+paths:
+
+  /User/{UserID}:
+    get:
+      tags:
+      - User
+      summary: "Поиск пользователя по ID"
+      description: ""
+      parameters:
+      - name: "UserID"
+        in: "path"
+        required: true
+        description: "ID пользователя"
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            aplication/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/User"
+        "404":
+          description: "User not found"
+          
+    put:
+      tags:
+      - User
+      summary: "Обновление данных пользователя"
+      description: ""
+      parameters:
+      - name: "UserID"
+        in: "path"
+        required: true
+        description: "ID пользователя"
+        schema:
+          type: integer
+      - name: "Surname"
+        in: "query"
+        required: false
+        description: "Фамилия пользователя"
+        schema:
+          type: string
+      - name: "Name"
+        in: "query"
+        required: false
+        schema:
+          type: string
+        description: "Имя пользователя"
+      responses:
+        "405":
+          description: "Invalid input"
+    
+  /User/ListUsers:
+    get:
+      tags:
+      - User
+      summary: "Список всех пользователей"
+      description: ""
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/User"
+  
+  /User/CreateTask:
+    post:
+      tags:
+      - User
+      summary: "Создание задачи"
+      parameters:
+      - name: Task
+        in: "query"
+        required: true
+        schema:
+          $ref: "#/components/schemas/Task"
+      responses:
+        "405":
+          description: "Invalid input"
+          
+  /Task/ListTaskByVendorID:
+    get:
+      tags:
+      - Task
+      summary: "Поиск всех задачь данного создателя"
+      parameters:
+      - name: "VendorID"
+        in: "query"
+        schema:
+          type: integer
+        required: true
+        description: "ID поставщика задач"
+      responses:
+        "200":
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Task"
+        "404":
+          description: "Task not found"
+          
+  /Task/ListTaskByExecutorID:
+    get:
+      tags:
+      - Task
+      summary: "Поиск всех задачь заданного исполнителя"
+      parameters:
+      - name: "ExecutorID"
+        in: "query"
+        schema:
+          type: integer
+        required: true
+        description: "ID исполнителя задач"
+      responses:
+        "200":
+          description: "Succeful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Task"
+        "404":
+          description: "Task not found"
+  
+  /Task/{TaskID}:
+    get:
+      tags:
+      - Task
+      summary: "Поиск одной задачи по ID"
+      parameters:
+      - name: "TaskID"
+        in: "path"
+        required: true
+        schema:
+          type: integer
+        description: "ID задачи"
+      responses:
+        "200":
+          description: "Succeful operation"
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Task"
+    put:
+      tags:
+      - Task
+      summary: "Обновление задачи"
+      parameters:
+      - name: "TaskID"
+        in: "path"
+        required: true
+        schema:
+          type: integer
+        description: "ID задачи"
+      - name: "Name"
+        in: "query"
+        required: false
+        schema:
+          type: string
+        description: "Имя задачи"
+      - name: "Description"
+        in: "query"
+        required: false
+        schema:
+          type: string
+        description: "Описание задачи"
+      - name: "ExecutorID"
+        in: "query"
+        required: false
+        schema: 
+         type: integer
+        description: "ID исполнителя"
+      responses:
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Task not found"
+          
+  /Task/{TaskID}/NewStatus:
+    put:
+      tags:
+      - Task
+      summary: "Изминение статуса задачи"
+      parameters:
+      - name: "TaskID"
+        in: "path"
+        required: true
+        schema:
+          type: integer
+        description: "ID задачи"
+      - name: "Status"
+        in: "query"
+        required: true
+        schema:
+          type: string
+          enum:
+            - Not started
+            - In process
+            - Completed
+            - Cancelled
+            - Rejected
+        description: "Статус задачи"
+      responses:
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Task not found"
+    
+  /Task/{TaskID}/NewVendor:
+    put:
+      tags:
+      - Task
+      summary: "Изминение поставщика задачи"
+      parameters:
+      - name: "TaskID"
+        in: "path"
+        required: true
+        description: "Статус задачи"
+        schema:
+          type: integer
+      - name: "VendorID"
+        in: "query"
+        description: "ID поставщика"
+        required: true
+        schema:
+          type: integer
+      responses:
+        "405":
+          description: "Invalid input"
+        "404":
+          description: "Task not found"
 
 components:
   schemas:
     User:
       type: object
+      required:
+        - UserID
+        - Surname
+        - Name
+        - Status
+        
       properties:
-        ID:
+        UserID:
           type: integer
         Surname:
           type: string
@@ -45,8 +292,14 @@ components:
            - Blocked
     Task:
       type: object
+      required:
+        - TaskID
+        - Name
+        - Description
+        - Status
+        - Vendor
       properties:
-        ID:
+        TaskID:
           type: integer
         Name:
           type: string
@@ -69,8 +322,8 @@ components:
            - Completed
            - Cancelled
            - Rejected
-        Vendor:
+        VendorID:
           $ref: "#/components/schemas/User" 
-        Executor:
+        ExecutorID:
           $ref: "#/components/schemas/User"
         
