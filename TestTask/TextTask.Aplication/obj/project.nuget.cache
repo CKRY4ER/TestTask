@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h5AqrjP84v+Dj8gzgVr6kjH5FXjIESMy2P82hg+/omG4veAj4sxdZONjdEWNMXUjb7xMW9C/e6MMyQn4A1TrRA==",
+  "dgSpecHash": "1N6WVob82F41eaIyfRiJwDgFtZ7NkGNC49aaE7kVVcwGYDaus8MIpvT/8xAzDDDJeyiNsSDwL6LmrbXyQL9NDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TextTask.Aplication\\TextTask.Aplication.csproj",
+  "projectFilePath": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TextTask.Aplication\\TestTask.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

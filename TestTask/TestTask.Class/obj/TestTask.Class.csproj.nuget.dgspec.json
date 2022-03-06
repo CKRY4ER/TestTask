@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TestTask.Class\\TestTask.Class.csproj",
-        "projectName": "TestTask.Class",
+        "projectName": "TestTask.Domain",
         "projectPath": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TestTask.Class\\TestTask.Class.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TestTask.Class\\obj\\",

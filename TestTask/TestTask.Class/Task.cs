@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TestTask.Class
+namespace TestTask.Domain
 {
     class Task
     {
@@ -13,6 +9,8 @@ namespace TestTask.Class
         public string Description { get; set; }
         public DateTime Create_Date { get; set; }
         public DateTime Date_Redact { get; set; }
+        public User VendorID { get; set; }
+        public User ExecutorID { get; set; }
         public string Status { get; set; }
     }
 }
