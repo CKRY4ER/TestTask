@@ -5,13 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace TestTask.Application.Notes.CreateUser
+namespace TestTask.Application.Notes.Queries.GetUser
 {
-    public class CreateUserCommand : IRequest<Guid>
+    public class GetUserQuery : IRequest<UserVm>
     {
         public Guid UserID { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-
     }
 }

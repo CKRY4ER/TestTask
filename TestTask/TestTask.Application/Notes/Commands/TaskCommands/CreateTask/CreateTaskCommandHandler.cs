@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using MediatR;
 using TestTask.Domain;
 using TestTask.Application.Interface;
+using Microsoft.EntityFrameworkCore;
+using TestTask.Application.Common.Exception;
 
-namespace TestTask.Application.Notes.CreateTask
+namespace TestTask.Application.Notes.Commands.TaskCommands.CreateTask
 {
     public class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, Guid>
     {
@@ -18,6 +20,12 @@ namespace TestTask.Application.Notes.CreateTask
         public async Task<Guid> Handle(CreateTaskCommand request,
             CancellationToken cancellationToken)
         {
+            var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.UserID == request.VendorID, cancellationToken);
+            if (user == null || user.UserID != request.VendorID)
+            {
+                throw new NotFoundException(nameof(User), request.VendorID);
+            }
+ 
             var task = new Domain.Task
             {
                 TaskID = request.TaskID,

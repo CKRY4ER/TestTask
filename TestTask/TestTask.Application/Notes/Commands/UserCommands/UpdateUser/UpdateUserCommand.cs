@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace TestTask.Application.Notes.UpdateUser
+namespace TestTask.Application.Notes.Commands.UserCommands.UpdateUser
 {
     public class UpdateUserCommand: IRequest
     {

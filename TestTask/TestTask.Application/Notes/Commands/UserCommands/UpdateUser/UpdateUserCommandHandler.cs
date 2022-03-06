@@ -10,7 +10,7 @@ using TestTask.Application.Interface;
 using TestTask.Application.Common.Exception;
 using TestTask.Domain;
 
-namespace TestTask.Application.Notes.UpdateUser
+namespace TestTask.Application.Notes.Commands.UserCommands.UpdateUser
 {
     public class UpdateUserCommandHandler:IRequestHandler<UpdateUserCommand>
     {

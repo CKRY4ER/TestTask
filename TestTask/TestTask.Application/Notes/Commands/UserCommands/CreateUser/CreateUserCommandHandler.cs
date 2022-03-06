@@ -8,7 +8,7 @@ using MediatR;
 using TestTask.Domain;
 using TestTask.Application.Interface;
 
-namespace TestTask.Application.Notes.CreateUser
+namespace TestTask.Application.Notes.Commands.UserCommands.CreateUser
 {
     public class CreateUserCommandHandler:IRequestHandler<CreateUserCommand, Guid>
     {

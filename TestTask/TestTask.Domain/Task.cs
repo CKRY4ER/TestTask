@@ -10,7 +10,7 @@ namespace TestTask.Domain
         public DateTime Create_Date { get; set; }
         public DateTime? Date_Redact { get; set; }
         public string Status { get; set; }
-        public int VendorID { get; set; }
-        public int? ExecutorID { get; set; }
+        public Guid VendorID { get; set; }
+        public Guid? ExecutorID { get; set; }
     }
 }
