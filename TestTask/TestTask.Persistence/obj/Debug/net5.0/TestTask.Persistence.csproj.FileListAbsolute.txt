@@ -1,0 +1,17 @@
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Persistence.deps.json
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Persistence.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\ref\TestTask.Persistence.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Persistence.pdb
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Application.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Domain.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Application.pdb
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\bin\Debug\net5.0\TestTask.Domain.pdb
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.AssemblyInfo.cs
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.csproj.CopyComplete
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\ref\TestTask.Persistence.dll
+C:\Users\user\Desktop\TestTask\TestTask\TestTask.Persistence\obj\Debug\net5.0\TestTask.Persistence.pdb
