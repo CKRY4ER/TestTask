@@ -11,6 +11,6 @@ namespace TestTask.Domain
         public DateTime? Date_Redact { get; set; }
         public string Status { get; set; }
         public int VendorID { get; set; }
-        public int ExecutorID { get; set; }
+        public int? ExecutorID { get; set; }
     }
 }

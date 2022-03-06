@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "J+M7raksmjGzQ5OfnyYefp9QmhK2hOMAGMPEtLveezLmGlw9P3YILMP5JDFtMw+8K+puhfPphtz8rczQSaP15A==",
+  "dgSpecHash": "8Pb4osLtx80rYhHi2YANETqGyfNWZKxBnjnHE3K77rHX3ZbtJsD5WisBK4D9ATRcdQfOatYUJ3J+OR9CuUbB3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\TestTask\\TestTask\\TestTask.Persistence\\TestTask.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.14\\microsoft.entityframeworkcore.5.0.14.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.14\\microsoft.entityframeworkcore.abstractions.5.0.14.nupkg.sha512",
