@@ -13,6 +13,6 @@ namespace TestTask.Domain
         public Guid VendorID { get; set; }
         public Guid? ExecutorID { get; set; }
         public User Vendor { get; set; }
-        public User Executor { get; set; }
+        public User? Executor { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace TestTask.Application.Notes.Queries.GetUser
+namespace TestTask.Application.Notes.Queries.UserQueries.GetUser
 {
     public class GetUserQuery : IRequest<UserVm>
     {

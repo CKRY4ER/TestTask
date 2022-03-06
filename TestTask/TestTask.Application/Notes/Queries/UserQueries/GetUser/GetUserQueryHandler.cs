@@ -11,7 +11,7 @@ using TestTask.Application.Common.Exception;
 using TestTask.Domain;
 using AutoMapper;
 
-namespace TestTask.Application.Notes.Queries.GetUser
+namespace TestTask.Application.Notes.Queries.UserQueries.GetUser
 {
     public class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserVm>
     {

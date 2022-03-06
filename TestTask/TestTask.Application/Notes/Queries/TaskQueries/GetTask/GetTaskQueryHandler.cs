@@ -13,7 +13,7 @@ using AutoMapper;
 
 namespace TestTask.Application.Notes.Queries.TaskQueries.GetTask
 {
-    class GetTaskQueryHandler : IRequestHandler<GetTaskQuery, TaskVm>
+    public class GetTaskQueryHandler : IRequestHandler<GetTaskQuery, TaskVm>
     {
         private readonly ITestTaskDbContext _dbContext;
         private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ namespace TestTask.Application.Notes.Queries.TaskQueries.GetTask
                .FirstOrDefaultAsync(task => task.TaskID == request.TaskID, cancellationToken);
             if (entity == null || entity.TaskID != request.TaskID)
             {
-                throw new NotFoundException(nameof(User), request.TaskID);
+                throw new NotFoundException(nameof(Domain.Task), request.TaskID);
             }
             return _mapper.Map<TaskVm>(entity);
         }

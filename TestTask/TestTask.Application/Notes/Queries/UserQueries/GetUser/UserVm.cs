@@ -5,7 +5,7 @@ using AutoMapper;
 using TestTask.Domain;
 using TestTask.Application.Common.Mappings;
 
-namespace TestTask.Application.Notes.Queries.GetUser
+namespace TestTask.Application.Notes.Queries.UserQueries.GetUser
 {
     public class UserVm : IMapWith<User>
     {

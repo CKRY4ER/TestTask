@@ -24,9 +24,10 @@ namespace TestTask.Application.Notes.Queries.UserQueries.GetListUsers
         public async Task<ListUserVm> Handle(GetListUsersQuery request,
             CancellationToken cancellationToken)
         {
-            var entites = await _dbContext.Users.Where(user => user.UserID == request.UserID)
+            var entites = await _dbContext.Users
                 .ProjectTo<ListUserDto>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
             return new ListUserVm { Users = entites };
+           // Where(user => user.UserID == request.UserID)
         }
     }
 }

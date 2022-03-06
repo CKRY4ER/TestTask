@@ -7,9 +7,9 @@ using AutoMapper;
 using TestTask.Domain;
 using TestTask.Application.Common.Mappings;
 
-namespace TestTask.Application.Notes.Queries.TaskQueries.GetTask
+namespace TestTask.Application.Notes.Queries.TaskQueries.GetListTaskByVendor
 {
-    public class TaskVm : IMapWith<Domain.Task>
+    public class ListTaskByVendorDto : IMapWith<Domain.Task>
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -21,12 +21,12 @@ namespace TestTask.Application.Notes.Queries.TaskQueries.GetTask
         public string VendorName { get; set; }
         public string VendorStatus { get; set; }
         public Guid? ExecutorID { get; set; }
-        public string ExecutorName { get; set; }
         public string ExecutorStatus { get; set; }
+        public string ExecutorName { get; set; }
         public string ExecutorSurname { get; set; }
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Domain.Task, TaskVm>()
+            profile.CreateMap<Domain.Task, ListTaskByVendorDto>()
                 .ForMember(taskvm => taskvm.Name,
                     opt => opt.MapFrom(task => task.Name))
                 .ForMember(taskvm => taskvm.Description,
@@ -43,16 +43,16 @@ namespace TestTask.Application.Notes.Queries.TaskQueries.GetTask
                     opt => opt.MapFrom(task => task.ExecutorID))
                 .ForMember(taskvm => taskvm.VendorName,
                     opt => opt.MapFrom(task => task.Vendor.Name))
-                .ForMember(taskvm=>taskvm.VendorStatus,
-                    opt=>opt.MapFrom(task=>task.Vendor.Status))
+                .ForMember(taskvm => taskvm.VendorStatus,
+                    opt => opt.MapFrom(task => task.Vendor.Status))
                 .ForMember(taskvm => taskvm.VendorSurname,
                     opt => opt.MapFrom(task => task.Vendor.Surname))
                 .ForMember(taskvm => taskvm.ExecutorName,
                     opt => opt.MapFrom(task => task.Executor.Name))
                 .ForMember(taskvm => taskvm.ExecutorSurname,
                     opt => opt.MapFrom(task => task.Executor.Surname))
-                .ForMember(taskvm=>taskvm.ExecutorStatus,
-                    opt=>opt.MapFrom(task=>task.Executor.Status));
+                .ForMember(taskvm => taskvm.ExecutorStatus,
+                    opt => opt.MapFrom(task => task.Executor.Status));
         }
     }
 }
