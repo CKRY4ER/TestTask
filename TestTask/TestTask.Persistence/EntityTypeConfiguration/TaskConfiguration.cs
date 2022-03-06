@@ -12,6 +12,12 @@ namespace TestTask.Persistence.EntityTypeConfiguration
             builder.HasIndex(Task => Task.TaskID).IsUnique();
             builder.Property(Task => Task.TaskID).IsRequired();
             builder.Property(Task => Task.VendorID).IsRequired();
+            builder.HasOne(Task => Task.Vendor).WithOne(User => User.TaskVendor).HasForeignKey<Task>(Task=>Task.VendorID);
+            builder.HasOne(Task => Task.Executor).WithOne(User => User.TaskExecuter).HasForeignKey<Task>(Task=>Task.ExecutorID);
+            builder.Property(Task => Task.Description).IsRequired();
+            builder.Property(Task => Task.Name).IsRequired();
+            builder.Property(Task => Task.Status).IsRequired();
+            builder.Property(Task => Task.Create_Date).IsRequired();
         }
     }
 }

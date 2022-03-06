@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestTask.Application.Notes.Queries.GetListUsers
+namespace TestTask.Application.Notes.Queries.UserQueries.GetListUsers
 {
     public class ListUserVm
     {

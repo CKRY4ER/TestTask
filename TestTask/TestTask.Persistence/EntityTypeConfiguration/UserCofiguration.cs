@@ -11,7 +11,10 @@ namespace TestTask.Persistence.EntityTypeConfiguration
             builder.HasKey(User => User.UserID);
             builder.HasIndex(User => User.UserID).IsUnique();
             builder.Property(User => User.UserID).IsRequired();
-
+            builder.Property(User => User.Name).IsRequired();
+            builder.Property(User => User.Surname).IsRequired();
+            builder.Property(User => User.Status).IsRequired();
+            builder.Property(User => User.Create_Date).IsRequired();
        }
     }
 }

@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper.QueryableExtensions;
 
 
-namespace TestTask.Application.Notes.Queries.GetListUsers
+namespace TestTask.Application.Notes.Queries.UserQueries.GetListUsers
 {
     public class GetListUsersQueryHandler : IRequestHandler<GetListUsersQuery, ListUserVm>
     {

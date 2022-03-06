@@ -7,7 +7,7 @@ using AutoMapper;
 using TestTask.Domain;
 using TestTask.Application.Common.Mappings;
 
-namespace TestTask.Application.Notes.Queries.GetListUsers
+namespace TestTask.Application.Notes.Queries.UserQueries.GetListUsers
 {
     public class ListUserDto : IMapWith<User>
     {

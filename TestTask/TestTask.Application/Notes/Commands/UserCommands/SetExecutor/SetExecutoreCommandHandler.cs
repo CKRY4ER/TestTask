@@ -31,6 +31,8 @@ namespace TestTask.Application.Notes.Commands.UserCommands.SetExecutor
                 throw new NotFoundException(nameof(Domain.Task), request.TaskID);
             }
             taskEntity.ExecutorID = userEntity.UserID;
+            taskEntity.Executor = userEntity;
+            userEntity.TaskExecuter = taskEntity;
             await _dbContext.SaveChangesAsync(cancellationToken);
             return Unit.Value;
         }

@@ -14,5 +14,7 @@ namespace TestTask.Domain
         public DateTime Create_Date { get; set; }
         public DateTime? Date_Redact { get; set; }
         public string Status { get; set; }
+        public Task TaskExecuter { get; set; }
+        public Task TaskVendor { get; set; }
     }
 }

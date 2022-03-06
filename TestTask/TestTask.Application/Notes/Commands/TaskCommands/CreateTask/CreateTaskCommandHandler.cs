@@ -25,7 +25,7 @@ namespace TestTask.Application.Notes.Commands.TaskCommands.CreateTask
             {
                 throw new NotFoundException(nameof(User), request.VendorID);
             }
- 
+
             var task = new Domain.Task
             {
                 TaskID = request.TaskID,
@@ -35,9 +35,12 @@ namespace TestTask.Application.Notes.Commands.TaskCommands.CreateTask
                 Create_Date = DateTime.Now,
                 Date_Redact = null,
                 Status = "Not started",
-                ExecutorID = null
+                ExecutorID = null,
+                Vendor = user
             };
+            user.TaskVendor = task;
             await _dbContext.Tasks.AddAsync(task, cancellationToken);
+            await _dbContext.Users.AddAsync(user, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return task.TaskID;
         }
