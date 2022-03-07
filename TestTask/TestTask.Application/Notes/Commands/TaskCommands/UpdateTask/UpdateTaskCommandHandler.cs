@@ -26,17 +26,17 @@ namespace TestTask.Application.Notes.Commands.TaskCommands.UpdateTask
             {
                 throw new NotFoundException(nameof(Domain.Task), request.TaskID);
             }
-            var us = await _dbContext.Users.FirstOrDefaultAsync(user => user.UserID == request.ExecutorID, cancellationToken);
-            if (us==null||us.UserID!=request.ExecutorID)
-            {
-                throw new NotFoundException(nameof(User), request.ExecutorID);
-            }
+           // var us = await _dbContext.Users.FirstOrDefaultAsync(user => user.UserID == request.ExecutorID, cancellationToken);
+            //if (us==null||us.UserID!=request.ExecutorID)
+            //{
+            //    throw new NotFoundException(nameof(User), request.ExecutorID);
+            //}
             entity.Name = request.Name;
             entity.Date_Redact = DateTime.Now;
             entity.Description = request.Description;
-            entity.Executor = us;
-            us.TaskExecuter = entity;
-            await _dbContext.SaveChangesAsync(cancellationToken);
+            //entity.Executor = us;
+            //us.TaskExecuter = entity;
+            //await _dbContext.SaveChangesAsync(cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return Unit.Value;
         }

@@ -40,7 +40,7 @@ namespace TestTask.Application.Notes.Commands.TaskCommands.CreateTask
             };
             user.TaskVendor = task;
             await _dbContext.Tasks.AddAsync(task, cancellationToken);
-            await _dbContext.Users.AddAsync(user, cancellationToken);
+           // await _dbContext.Users.AddAsync(user, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
             return task.TaskID;
         }

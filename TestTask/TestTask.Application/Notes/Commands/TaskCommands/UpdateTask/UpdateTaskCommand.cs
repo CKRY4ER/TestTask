@@ -12,6 +12,6 @@ namespace TestTask.Application.Notes.Commands.TaskCommands.UpdateTask
         public Guid TaskID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid ExecutorID { get; set; }
+        //public Guid ExecutorID { get; set; }
     }
 }

@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace TestTask.Application.Notes.Commands.TaskCommands.UpdateTaskStatus
+namespace TestTask.Application.Notes.Commands.TaskCommands.ChangeVendor
 {
-    public class UpdateTaskStatusCommand : IRequest
+   public class ChangeVendorCommand : IRequest
     {
         public Guid TaskID { get; set; }
-        public string Status { get; set; }
+        public Guid VendorID { get; set; }
     }
 }

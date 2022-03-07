@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using TestTask.Application.Notes.Queries.TaskQueries.GetListTaskByVendor;
 using TestTask.Application.Notes.Queries.TaskQueries.GetListTaskByExecutor;
 using TestTask.Application.Notes.Queries.TaskQueries.GetTask;
-
+using TestTask.Application.Notes.Commands.TaskCommands.CreateTask;
+using TestTask.Application.Notes.Commands.TaskCommands.UpdateTask;
 
 namespace TestTask.WepApi.Controllers
 {
@@ -18,7 +19,7 @@ namespace TestTask.WepApi.Controllers
         private readonly IMapper _mapper;
         public TaskController(IMapper mapper) => _mapper = mapper;
 
-        [HttpGet("VendorID")]
+        [HttpGet("ListByVendor")]
         public async Task<ActionResult<ListTaskByVendorVm>> GetListTaskByVendor(Guid VendorId)
         {
             var query = new GetListTaskByVendorQuery
@@ -29,7 +30,7 @@ namespace TestTask.WepApi.Controllers
             return Ok(vm);
         }
 
-        [HttpGet("ExecutorID")]
+        [HttpGet("ListByExecutor")]
         public async Task<ActionResult<GetListTaskByExecutorVm>> GetListTaskByExecutor(Guid ExecutorID)
         {
             var query = new GetListTaskByExecutorQuery
@@ -50,6 +51,38 @@ namespace TestTask.WepApi.Controllers
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
-
+        [HttpPost("CreateTask")]
+        public async Task<ActionResult<Guid>> CreateTask([FromBody] CreateTaskDto createTaskDto)
+        {
+            var command = _mapper.Map<CreateTaskCommand>(createTaskDto);
+            var taskid = await Mediator.Send(command);
+            return Ok(taskid);
+        }
+        [HttpPut("UpdateTask")]
+        public async Task<IActionResult> UpdateTask([FromBody] UpdateTaskDto updateTaskDto)
+        {
+            var command = _mapper.Map<UpdateTaskCommand>(updateTaskDto);
+           // command.TaskID = updateTaskDto.TaskID;
+            await Mediator.Send(command);
+            return NoContent();
+        }
+        [HttpPut("ChangeStatus")]
+        public async Task<IActionResult> ChangeStatus([FromBody] ChangeStatus changeStatus)
+        {
+            var command = _mapper.Map<ChangeStatus>(changeStatus);
+           // command.TaskID = changeStatus.TaskID;
+            command.Status = changeStatus.Status;
+            await Mediator.Send(command);
+            return NoContent();
+        }
+        [HttpPut("ChangeVendor")]
+        public async Task<IActionResult> ChangeVendor([FromBody] ChangeVendorDto changeVendor)
+        {
+            var command = _mapper.Map<ChangeVendorDto>(changeVendor);
+           // command.TaskID = changeVendor.TaskID;
+            command.VendorID = changeVendor.VendorID;
+            await Mediator.Send(command);
+            return NoContent();
+        }
     }
 }
