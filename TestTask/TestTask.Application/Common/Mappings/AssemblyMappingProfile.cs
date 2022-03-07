@@ -4,7 +4,7 @@ using System.Reflection;
 using System;
 namespace TestTask.Application.Common.Mappings
 {
-    class AssemblyMappingProfile : Profile
+    public class AssemblyMappingProfile : Profile
     {
         public AssemblyMappingProfile(Assembly assembly) =>
             ApplyMappingFromAssempbly(assembly);

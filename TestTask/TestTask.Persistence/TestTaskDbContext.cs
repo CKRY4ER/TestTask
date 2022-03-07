@@ -18,9 +18,10 @@ namespace TestTask.Persistence
             : base(options) { }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new TaskConfiguration());
-            builder.ApplyConfiguration(new UserCofiguration());
+            builder.ApplyConfiguration(new TaskConfiguration()).ApplyConfiguration(new UserCofiguration());
+           // builder.ApplyConfiguration(new UserCofiguration());
             base.OnModelCreating(builder);
         }
+
     }
 }
