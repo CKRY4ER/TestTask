@@ -21,9 +21,9 @@ namespace TestTask.Application.Notes.Queries.TaskQueries.GetListTaskByVendor
         public string VendorName { get; set; }
         public string VendorStatus { get; set; }
         public Guid? ExecutorID { get; set; }
-        public string ExecutorStatus { get; set; }
         public string ExecutorName { get; set; }
         public string ExecutorSurname { get; set; }
+        public string ExecutorStatus { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Task, ListTaskByVendorDto>()

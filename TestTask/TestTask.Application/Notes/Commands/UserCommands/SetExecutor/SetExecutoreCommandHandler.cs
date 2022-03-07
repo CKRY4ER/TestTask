@@ -12,7 +12,7 @@ using TestTask.Domain;
 
 namespace TestTask.Application.Notes.Commands.UserCommands.SetExecutor
 {
-    class SetExecutoreCommandHandler : IRequestHandler<SetExecutorCommand>
+    public class SetExecutoreCommandHandler : IRequestHandler<SetExecutorCommand>
     {
         private readonly ITestTaskDbContext _dbContext;
         public SetExecutoreCommandHandler(ITestTaskDbContext dbContext) =>
@@ -31,6 +31,7 @@ namespace TestTask.Application.Notes.Commands.UserCommands.SetExecutor
                 throw new NotFoundException(nameof(Domain.Task), request.TaskID);
             }
             taskEntity.ExecutorID = userEntity.UserID;
+            //taskEntity.Executor.UserID = userEntity.UserID;
             taskEntity.Executor = userEntity;
             userEntity.TaskExecuter = taskEntity;
             await _dbContext.SaveChangesAsync(cancellationToken);

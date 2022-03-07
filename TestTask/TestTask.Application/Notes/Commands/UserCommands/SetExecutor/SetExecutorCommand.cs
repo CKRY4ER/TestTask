@@ -7,7 +7,7 @@ using MediatR;
 
 namespace TestTask.Application.Notes.Commands.UserCommands.SetExecutor
 {
-    class SetExecutorCommand : IRequest
+    public class SetExecutorCommand : IRequest
     {
         public Guid TaskID { get; set; }
         public Guid ExecutorID { get; set; }

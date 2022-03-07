@@ -17,6 +17,7 @@ namespace TestTask.WepApi.Controllers
     {
         private readonly IMapper _mapper;
         public TaskController(IMapper mapper) => _mapper = mapper;
+
         [HttpGet("VendorID")]
         public async Task<ActionResult<ListTaskByVendorVm>> GetListTaskByVendor(Guid VendorId)
         {
