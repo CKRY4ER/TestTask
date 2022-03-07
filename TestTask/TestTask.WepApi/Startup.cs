@@ -39,14 +39,21 @@ namespace TestTask.WepApi
                     policy.AllowAnyOrigin();
                 });
             });
+            services.AddSwaggerGen();
         }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>
+            {
+                config.RoutePrefix = string.Empty;
+                config.SwaggerEndpoint("swagger/v1/swagger.json", "TestTask Api");
+            });
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");

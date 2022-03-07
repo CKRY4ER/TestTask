@@ -5,32 +5,48 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TestTask.Application.Notes.Queries.UserQueries.GetUser;
 using TestTask.Application.Notes.Queries.UserQueries.GetListUsers;
+using TestTask.Application.Notes.Commands.UserCommands.UpdateUser;
+using TestTask.WepApi.Models;
+using AutoMapper;
+using TestTask.Application.Common.Mappings;
 
 namespace TestTask.WepApi.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : BaseController
     {
+        private readonly IMapper _mapper;
+        public UserController(IMapper mapper) => _mapper = mapper;
         [HttpGet]
         public async Task<ActionResult<ListUserVm>> GetListUser()
         {
             var query = new GetListUsersQuery
+            {
+            };
+            var vm = await Mediator.Send(query);
+            return Ok(vm);
+        }
+        [HttpGet("{UserID}")]
+        public async Task<ActionResult<UserVm>> GetUserID(Guid UserID)
+        {
+            var query = new GetUserQuery
             {
                 UserID = UserID
             };
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
-        [HttpGet("{UserID}")]
-        public async Task<ActionResult<UserVm>> GetUserID(Guid id)
+        [HttpPut("UpdateUser")]
+        public async Task<IActionResult> Update([FromBody]UpdateUserDto updateUserDto)
         {
-            var query = new GetUserQuery
-            {
-                UserID = id
-            };
-            var vm = await Mediator.Send(query);
-            return Ok(vm);
-        }
+            var command = _mapper.Map<UpdateUserCommand>(updateUserDto);
+            command.UserID = updateUserDto.UserID;
+
+            await Mediator.Send(command);
+            return NoContent();
+
+        }   
+
     }
     
 }

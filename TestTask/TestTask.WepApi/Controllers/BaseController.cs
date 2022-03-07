@@ -12,8 +12,8 @@ namespace TestTask.WepApi.Controllers
         private IMediator _mediator;
         protected IMediator Mediator =>
             _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
-        internal Guid UserID => !User.Identity.IsAuthenticated
-            ? Guid.Empty
-            : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        //internal Guid UseriD => !User.Identity.IsAuthenticated
+        //    ? Guid.Empty
+        //    : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
     }
 }
